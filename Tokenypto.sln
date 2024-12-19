@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C2201728-7C40-4FA4-BF00-2FFA691915BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenypto.Api", "src\Tokenypto.Api\Tokenypto.Api.csproj", "{A4E83484-A275-41A5-B612-233DD8FE2D78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D35583FB-B1C8-4AC4-B17C-9D3BECF13498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenypto.UnitTests", "test\Tokenypto.UnitTests\Tokenypto.UnitTests.csproj", "{A366050B-8307-4EBC-8572-C1F841D4190E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4E83484-A275-41A5-B612-233DD8FE2D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E83484-A275-41A5-B612-233DD8FE2D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E83484-A275-41A5-B612-233DD8FE2D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E83484-A275-41A5-B612-233DD8FE2D78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A366050B-8307-4EBC-8572-C1F841D4190E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A366050B-8307-4EBC-8572-C1F841D4190E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A366050B-8307-4EBC-8572-C1F841D4190E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A366050B-8307-4EBC-8572-C1F841D4190E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4E83484-A275-41A5-B612-233DD8FE2D78} = {C2201728-7C40-4FA4-BF00-2FFA691915BF}
+		{A366050B-8307-4EBC-8572-C1F841D4190E} = {D35583FB-B1C8-4AC4-B17C-9D3BECF13498}
+	EndGlobalSection
+EndGlobal
