@@ -1,41 +1,74 @@
+using Carter;
+using Microsoft.AspNetCore.Builder;
+using Serilog;
+using Tokenypto.Api.Configurations.ApiVersioningConfiguration;
+using Tokenypto.Api.Configurations.CoinMarketCapConfiguration;
+using Tokenypto.Api.Configurations.ExceptionHandlingConfiguration;
+using Tokenypto.Api.Configurations.HttpClientConfiguration;
+using Tokenypto.Api.Configurations.SerilogConfiguration;
+using Tokenypto.Api.Configurations.ServicesConfiguration;
+using Tokenypto.Api.Middlewares;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Logging.AddConsole();
+
+// Add and Use Serilog
+builder.AddSerilogConfiguration();
+
+// Add options
+builder.AddCoinMarketCapConfiguration();
+
+builder.Services.AddHttpClientConfiguration();
+builder.Services.AddServicesConfiguration();
+builder.Services.AddCarter();
+
+builder.Services.AddApiVersioningConfiguration();
+
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddOpenApi();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+if (app.Environment.IsDevelopment() || true)
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        var descriptions = app.DescribeApiVersions();
+
+        foreach (var groupName in descriptions.Select(description => description.GroupName))
+        {
+            var url = $"/swagger/{groupName}/swagger.json";
+            var name = groupName.ToUpperInvariant();
+            options.SwaggerEndpoint(url, name);
+        }
+    });
 }
+
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+// Serilog request logging
+app.UseSerilogRequestLogging();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+// Custom exception handler middleware
+app.UseCustomExceptionHandler();
+
+// Api Versioning
+app.UseApiVersioning();
+
+// For Registering ICarterModule s
+app.MapCarter();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+
+public partial class Program;

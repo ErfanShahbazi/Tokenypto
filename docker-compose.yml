@@ -1,0 +1,6 @@
+services:
+  tokenypto.api:
+    image: ${DOCKER_REGISTRY-}tokenyptoapi
+    build:
+      context: src/Tokenypto.Api
+      dockerfile: Dockerfile

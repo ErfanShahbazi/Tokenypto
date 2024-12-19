@@ -9,15 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenypto.Api", "src\Tokeny
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D35583FB-B1C8-4AC4-B17C-9D3BECF13498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenypto.UnitTests", "test\Tokenypto.UnitTests\Tokenypto.UnitTests.csproj", "{A366050B-8307-4EBC-8572-C1F841D4190E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenypto.Api.UnitTests", "test\Tokenypto.Api.UnitTests\Tokenypto.Api.UnitTests.csproj", "{A366050B-8307-4EBC-8572-C1F841D4190E}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6C0FA44F-4B44-4728-8C98-5B3EA10455B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A4E83484-A275-41A5-B612-233DD8FE2D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -28,6 +27,13 @@ Global
 		{A366050B-8307-4EBC-8572-C1F841D4190E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A366050B-8307-4EBC-8572-C1F841D4190E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A366050B-8307-4EBC-8572-C1F841D4190E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C0FA44F-4B44-4728-8C98-5B3EA10455B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C0FA44F-4B44-4728-8C98-5B3EA10455B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C0FA44F-4B44-4728-8C98-5B3EA10455B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C0FA44F-4B44-4728-8C98-5B3EA10455B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A4E83484-A275-41A5-B612-233DD8FE2D78} = {C2201728-7C40-4FA4-BF00-2FFA691915BF}

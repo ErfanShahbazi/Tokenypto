@@ -1,6 +1,9 @@
-@Tokenypto.Api_HostAddress = http://localhost:5004
+@Tokenypto.Api_HostAddress = http://localhost:5005
 
-GET {{Tokenypto.Api_HostAddress}}/weatherforecast/
+GET {{Tokenypto.Api_HostAddress}}/api/v1/crypto?cryptoCurrencySign=btc
 Accept: application/json
 
 ###
+
+GET {{Tokenypto.Api_HostAddress}}/api/v1/crypto/exchange?cryptoCurrencySign=btc&currencySign=usd
+Accept: application/json
