@@ -24,6 +24,7 @@ jobs:
     - name: Install Dependencies
       run: dotnet restore tokenypto.sln
 
-    # Step 4: Build the project
-    - name: Build Project
-      run: dotnet test 
+    # Step 4: Test the project
+    - name: Test Project
+      run: dotnet test tokenypto.sln
+
