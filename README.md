@@ -2,7 +2,7 @@
 
 ![Test Passing](https://img.shields.io/badge/Tests-Passed-brightgreen)
 
-This project is a .Net Core Web API project that provide endpoints for retrieving cryptocurrency information. The APIs allow users to fetch exchange rates and other details about crypto currencies.
+This project is a .Net Core Web API project that provides endpoints for retrieving cryptocurrency information. The APIs allow users to fetch exchange rates and other details about crypto currencies.
 
 ## Current Features
 - Retrieve the exchange rate of a cryptocurrency based on a currency.
