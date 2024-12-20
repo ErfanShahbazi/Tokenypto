@@ -2,5 +2,5 @@
 
 namespace Tokenypto.Api.Services.Crypto.DTOs
 {
-    public record GetCryptoCurrencyQuoteResultDTO(CryptoCurrency CryptoCurrency,Money Money);
+    public record GetCryptoCurrencyQuoteResultDTO(CryptoCurrency CryptoCurrency, Money Money);
 }

@@ -1,27 +1,28 @@
-﻿using Microsoft.Extensions.Options;
-using Polly;
+﻿using Polly;
 using Polly.Extensions.Http;
 using Tokenypto.Api.Services.Crypto;
 
-namespace Tokenypto.Api.Configurations.HttpClientConfiguration
+namespace Tokenypto.Api.Configurations.HttpClientConfiguration;
+
+public static class HttpClientConfiguration
 {
-    public static class HttpClientConfiguration
+    public static IServiceCollection AddHttpClientConfiguration(
+    this IServiceCollection services)
     {
-        public static IServiceCollection AddHttpClientConfiguration(
-        this IServiceCollection services)
+        services.AddHttpClient<ICryptoService, CoinMarketCapService>(client =>
         {
-            services.AddHttpClient<ICryptoService>()
-                    .SetHandlerLifetime(TimeSpan.FromMinutes(5))
-                    .AddPolicyHandler(GetRetryPolicy());
+            client.Timeout = TimeSpan.FromSeconds(30);
+        })
+        .SetHandlerLifetime(TimeSpan.FromMinutes(5))
+        .AddPolicyHandler(GetRetryPolicy());
 
-            return services;
-        }
+        return services;
+    }
 
-        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-        {
-            return HttpPolicyExtensions
-                   .HandleTransientHttpError()
-                   .WaitAndRetryAsync(2, retryAttempt => TimeSpan.FromSeconds(1));
-        }
+    private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+    {
+        return HttpPolicyExtensions
+               .HandleTransientHttpError()
+               .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(1));
     }
 }

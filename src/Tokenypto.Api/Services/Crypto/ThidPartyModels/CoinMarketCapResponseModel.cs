@@ -1,4 +1,6 @@
-﻿using Tokenypto.Api.Exceptions;
+﻿using System.Net;
+using Tokenypto.Api.Entities;
+using Tokenypto.Api.Exceptions;
 
 namespace Tokenypto.Api.Services.Crypto.Models
 {
@@ -6,6 +8,22 @@ namespace Tokenypto.Api.Services.Crypto.Models
     public class CoinMarketCapResponse
     {
         public Dictionary<string, CoinMarketCapCryptoData> Data { get; set; } = new();
+
+
+        public decimal GetPrice(string cryptoCurrencySign , string currencySign)
+        {
+            try
+            {
+                var price = Data[cryptoCurrencySign]?.Quote[currencySign]?.Price ?? throw new CustomException(CryptoServiceErrors.NoPriceDataFound, HttpStatusCode.NotFound);
+
+                return price;
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new CustomException(CryptoServiceErrors.NoPriceDataFound, HttpStatusCode.NotFound);
+            }
+        }
+
     }
 
 

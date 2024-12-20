@@ -1,5 +1,4 @@
 using Carter;
-using Microsoft.AspNetCore.Builder;
 using Serilog;
 using Tokenypto.Api.Configurations.ApiVersioningConfiguration;
 using Tokenypto.Api.Configurations.CoinMarketCapConfiguration;
@@ -7,7 +6,6 @@ using Tokenypto.Api.Configurations.ExceptionHandlingConfiguration;
 using Tokenypto.Api.Configurations.HttpClientConfiguration;
 using Tokenypto.Api.Configurations.SerilogConfiguration;
 using Tokenypto.Api.Configurations.ServicesConfiguration;
-using Tokenypto.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +17,8 @@ builder.AddSerilogConfiguration();
 // Add options
 builder.AddCoinMarketCapConfiguration();
 
-builder.Services.AddHttpClientConfiguration();
 builder.Services.AddServicesConfiguration();
+builder.Services.AddHttpClientConfiguration();
 builder.Services.AddCarter();
 
 builder.Services.AddApiVersioningConfiguration();

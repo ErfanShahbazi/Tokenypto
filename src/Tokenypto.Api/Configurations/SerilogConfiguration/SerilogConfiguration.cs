@@ -1,14 +1,12 @@
 ﻿using Serilog;
-using Tokenypto.Api.Middlewares;
 
-namespace Tokenypto.Api.Configurations.SerilogConfiguration
+namespace Tokenypto.Api.Configurations.SerilogConfiguration;
+
+public static class SerilogConfiguration
 {
-    public static class SerilogConfiguration
+    public static void AddSerilogConfiguration(this WebApplicationBuilder builder)
     {
-        public static void AddSerilogConfiguration(this WebApplicationBuilder builder)
-        {
-            builder.Host.UseSerilog((context, configuration) =>
-                                    configuration.ReadFrom.Configuration(context.Configuration));
-        }
+        builder.Host.UseSerilog((context, configuration) =>
+                                configuration.ReadFrom.Configuration(context.Configuration));
     }
 }

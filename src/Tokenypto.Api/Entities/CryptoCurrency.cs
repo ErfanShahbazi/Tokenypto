@@ -1,4 +1,3 @@
-﻿namespace Tokenypto.Api.Entities
-{
-    public record CryptoCurrency(string Sign);
-}
+﻿namespace Tokenypto.Api.Entities;
+
+public record CryptoCurrency(string Sign);
