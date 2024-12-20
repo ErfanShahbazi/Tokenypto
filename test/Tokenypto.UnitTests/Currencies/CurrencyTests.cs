@@ -1,16 +1,15 @@
 ﻿using Tokenypto.Api.Entities;
 
-namespace Tokenypto.Api.UnitTests
+namespace Tokenypto.Api.UnitTests;
+
+public class CurrencyTests
 {
-    public class CurrencyTests
+    [Fact]
+    public void GetFromCode_NotExistingCurrencyCode_Should_ThrowApplicationException()
     {
-        [Fact]
-        public void GetFromCode_NotExistingCurrencyCode_Should_ThrowApplicationException()
-        {
-            // Arrange
-            string code = "Wrong";
-            // Act and Assert
-            Assert.Throws<ApplicationException>(() => Currency.FromCode(code));
-        }
+        // Arrange
+        string code = "Wrong";
+        // Act and Assert
+        Assert.Throws<ApplicationException>(() => Currency.FromCode(code));
     }
 }

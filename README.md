@@ -1,6 +1,6 @@
 # Tokenypto
 
-![Test Passing](https://img.shields.io/badge/Tests-Passed-brightgreen)
+![Test Passed](https://img.shields.io/badge/Tests-Passed-brightgreen)
 
 This project is a .Net Core Web API project that provides endpoints for retrieving cryptocurrency information. The APIs allow users to fetch exchange rates and other details about crypto currencies.
 
@@ -29,33 +29,23 @@ GET {{Tokenypto.Api_HostAddress}}/api/v1/crypto/exchange?cryptoCurrencySign=btc&
 **Response**:
 ```json
 {
-  "valueOrDefault": {
-    "cryptoCurrency": {
-      "sign": "BTC"
-    },
-    "priceData": {
-      "amount": 97051.29232863031,
-      "currency": {
-        "sign": "USD"
-      }
-    }
-  },
   "value": {
     "cryptoCurrency": {
       "sign": "BTC"
     },
     "priceData": {
-      "amount": 97051.29232863031,
+      "amount": 97020.27337310933,
       "currency": {
         "sign": "USD"
       }
     }
   },
-  "isFailed": false,
   "isSuccess": true,
-  "reasons": [],
-  "errors": [],
-  "successes": []
+  "isFailure": false,
+  "error": {
+    "code": "",
+    "description": ""
+  }
 }
 ```
 
@@ -79,125 +69,69 @@ GET {{Tokenypto.Api_HostAddress}}/api/v1/crypto?cryptoCurrencySign=BTC
 **Response**:
 ```json
 {
-  "valueOrDefault": [
-    {
-      "cryptoCurrency": {
-        "sign": "BTC"
-      },
-      "priceData": {
-    "amount": 97059.0582093153,
-        "currency": {
-        "sign": "USD"
-        }
-}
-    },
-    {
-    "cryptoCurrency": {
-        "sign": "BTC"
-      },
-      "priceData": {
-        "amount": 154952.35995471667,
-        "currency": {
-            "sign": "AUD"
-        }
-    }
-},
-    {
-    "cryptoCurrency": {
-        "sign": "BTC"
-      },
-      "priceData": {
-        "amount": 92978.88952031243,
-        "currency": {
-            "sign": "EUR"
-        }
-    }
-},
-    {
-    "cryptoCurrency": {
-        "sign": "BTC"
-      },
-      "priceData": {
-        "amount": 588595.2466987657,
-        "currency": {
-            "sign": "BRL"
-        }
-    }
-},
-    {
-    "cryptoCurrency": {
-        "sign": "BTC"
-      },
-      "priceData": {
-        "amount": 77079.06284069488,
-        "currency": {
-            "sign": "GBP"
-        }
-    }
-}
-  ],
   "value": [
     {
       "cryptoCurrency": {
         "sign": "BTC"
       },
       "priceData": {
-    "amount": 97059.0582093153,
+        "amount": 97087.45531054199,
         "currency": {
-        "sign": "USD"
+          "sign": "USD"
         }
-}
+      }
     },
     {
-    "cryptoCurrency": {
+      "cryptoCurrency": {
         "sign": "BTC"
       },
       "priceData": {
-        "amount": 154952.35995471667,
+        "amount": 155290.21971974734,
         "currency": {
-            "sign": "AUD"
+          "sign": "AUD"
         }
-    }
-},
+      }
+    },
     {
-    "cryptoCurrency": {
+      "cryptoCurrency": {
         "sign": "BTC"
       },
       "priceData": {
-        "amount": 92978.88952031243,
+        "amount": 93071.43272162169,
         "currency": {
-            "sign": "EUR"
+          "sign": "EUR"
         }
-    }
-},
+      }
+    },
     {
-    "cryptoCurrency": {
+      "cryptoCurrency": {
         "sign": "BTC"
       },
       "priceData": {
-        "amount": 588595.2466987657,
+        "amount": 590874.2530199722,
         "currency": {
-            "sign": "BRL"
+          "sign": "BRL"
         }
-    }
-},
+      }
+    },
     {
-    "cryptoCurrency": {
+      "cryptoCurrency": {
         "sign": "BTC"
       },
       "priceData": {
-        "amount": 77079.06284069488,
+        "amount": 77231.32312534082,
         "currency": {
-            "sign": "GBP"
+          "sign": "GBP"
         }
+      }
     }
-}
   ],
-  "isFailed": false,
   "isSuccess": true,
-  "reasons": [],
-  "errors": [],
-  "successes": []
+  "isFailure": false,
+  "error": {
+    "code": "",
+    "description": ""
+  }
 }
 ```
 

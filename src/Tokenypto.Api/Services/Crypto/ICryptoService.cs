@@ -1,4 +1,4 @@
-﻿using FluentResults;
+﻿using Tokenypto.Api.Entities.Abstractions;
 using Tokenypto.Api.Services.Crypto.DTOs;
 
 namespace Tokenypto.Api.Services.Crypto;

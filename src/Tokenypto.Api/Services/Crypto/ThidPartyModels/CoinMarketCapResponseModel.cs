@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using Tokenypto.Api.Entities;
 using Tokenypto.Api.Exceptions;
 
 namespace Tokenypto.Api.Services.Crypto.Models
@@ -10,7 +9,7 @@ namespace Tokenypto.Api.Services.Crypto.Models
         public Dictionary<string, CoinMarketCapCryptoData> Data { get; set; } = new();
 
 
-        public decimal GetPrice(string cryptoCurrencySign , string currencySign)
+        public decimal GetPrice(string cryptoCurrencySign, string currencySign)
         {
             try
             {
@@ -32,7 +31,7 @@ namespace Tokenypto.Api.Services.Crypto.Models
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Symbol { get; set; } = string.Empty;
-        public Dictionary<string,CoinMarketCapQuote> Quote { get; set; } = new();
+        public Dictionary<string, CoinMarketCapQuote> Quote { get; set; } = new();
     }
 
     public class CoinMarketCapQuote

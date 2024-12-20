@@ -1,6 +1,6 @@
 ﻿using Carter;
-using FluentResults;
 using Tokenypto.Api.Configurations.ApiVersioningConfiguration;
+using Tokenypto.Api.Entities.Abstractions;
 using Tokenypto.Api.Services.Crypto;
 using Tokenypto.Api.Services.Crypto.DTOs;
 

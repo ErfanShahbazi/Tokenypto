@@ -1,12 +1,13 @@
-﻿using FluentResults;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using System.Net;
 using Tokenypto.Api.Configurations.CoinMarketCapConfiguration;
 using Tokenypto.Api.Entities;
+using Tokenypto.Api.Entities.Abstractions;
 using Tokenypto.Api.Exceptions;
 using Tokenypto.Api.Services.Crypto.DTOs;
 using Tokenypto.Api.Services.Crypto.Models;
 using Tokenypto.Api.Services.Shared;
+
 namespace Tokenypto.Api.Services.Crypto;
 
 public class CoinMarketCapService : ICryptoService
@@ -32,7 +33,7 @@ public class CoinMarketCapService : ICryptoService
             listOfQuotes.Add(signResult.Value);
         }
 
-        Result<List<GetCryptoCurrencyQuoteResultDTO>> result = new Result<List<GetCryptoCurrencyQuoteResultDTO>>().WithValue(listOfQuotes);
+        Result<List<GetCryptoCurrencyQuoteResultDTO>> result = Result.Success(listOfQuotes);
 
         return result;
     }
@@ -53,7 +54,7 @@ public class CoinMarketCapService : ICryptoService
         var httpResponseMessage = await _client.GetAsync($"{endpoint}?{query}", cancellationToken);
         httpResponseMessage.EnsureSuccessStatusCode();
 
-        CoinMarketCapResponse responseData = await httpResponseMessage.Content.ReadFromJsonAsync<CoinMarketCapResponse>(cancellationToken) ?? throw new CustomException(HttpClientErrors.NoResponse,HttpStatusCode.NotFound);
+        CoinMarketCapResponse responseData = await httpResponseMessage.Content.ReadFromJsonAsync<CoinMarketCapResponse>(cancellationToken) ?? throw new CustomException(HttpClientErrors.NoResponse, HttpStatusCode.NotFound);
 
 
         var priceAmount = responseData.GetPrice(cryptoCurrencySign, currencySign);
@@ -61,7 +62,7 @@ public class CoinMarketCapService : ICryptoService
         GetCryptoCurrencyQuoteResultDTO data = new(cryptoCurrency, price);
 
 
-        var result = new Result<GetCryptoCurrencyQuoteResultDTO>().WithValue(data);
+        var result = Result.Success(data);
         return result;
     }
 }

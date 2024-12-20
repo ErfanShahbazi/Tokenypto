@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tokenypto.Api.Entities;
+﻿using Tokenypto.Api.Entities;
 
-namespace Tokenypto.Api.UnitTests
+namespace Tokenypto.Api.UnitTests;
+
+internal static class MoneyData
 {
-    internal static class MoneyData
-    {
-        internal static Money ZeroEuro = new Money(0, Currency.Euro);
+    internal static Money ZeroEuro = new Money(0, Currency.Euro);
 
-
-        internal static Money USD_50 = new Money(50, Currency.UnitedStatesDollar);
-        internal static Money EUR_100 = new Money(100, Currency.Euro);
-    }
+    internal static Money USD_50 = new Money(50, Currency.UnitedStatesDollar);
+    internal static Money EUR_100 = new Money(100, Currency.Euro);
 }

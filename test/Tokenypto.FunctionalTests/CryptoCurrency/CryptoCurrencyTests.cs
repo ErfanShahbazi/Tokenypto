@@ -1,7 +1,4 @@
 ﻿using FluentAssertions;
-using FluentResults;
-using System.Net.Http.Json;
-using Tokenypto.Api.Services.Crypto.DTOs;
 using Tokenypto.FunctionalTests.Infrastructure;
 
 namespace Tokenypto.FunctionalTests.CryptoCurrency;
@@ -22,11 +19,8 @@ public class CryptoCurrencyTests : BaseFunctionalTest
         // Act
         var response = await Client.GetAsync($"/api/v1/crypto?cryptoCurrencySign={cryptoCurrencySign}");
 
-        var content = await response.Content.ReadFromJsonAsync<Result<GetCryptoCurrencyQuoteResultDTO>>();
-
         // Assert
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
-        response.Content.Should().NotBeNull();
     }
 
     [Fact]
@@ -39,11 +33,8 @@ public class CryptoCurrencyTests : BaseFunctionalTest
         // Act
         var response = await Client.GetAsync($"/api/v1/crypto/exchange?cryptoCurrencySign={cryptoCurrencySign}&currencySign={currencySign}");
 
-        var content = await response.Content.ReadFromJsonAsync<Result<List<GetCryptoCurrencyQuoteResultDTO>>>();
-
         // Assert
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
-        response.Content.Should().NotBeNull();
     }
 
     [Fact]
@@ -54,8 +45,6 @@ public class CryptoCurrencyTests : BaseFunctionalTest
 
         // Act
         var response = await Client.GetAsync($"/api/v1/crypto?cryptoCurrencySign={cryptoCurrencySign}");
-
-        var content = await response.Content.ReadFromJsonAsync<Result<GetCryptoCurrencyQuoteResultDTO>>();
 
         // Assert
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.NotFound);
@@ -70,8 +59,6 @@ public class CryptoCurrencyTests : BaseFunctionalTest
 
         // Act
         var response = await Client.GetAsync($"/api/v1/crypto/exchange?cryptoCurrencySign={cryptoCurrencySign}&currencySign={currencySign}");
-
-        var content = await response.Content.ReadFromJsonAsync<Result<List<GetCryptoCurrencyQuoteResultDTO>>>();
 
         // Assert
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.NotFound);

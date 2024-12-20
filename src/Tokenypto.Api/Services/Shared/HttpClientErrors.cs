@@ -1,7 +1,8 @@
-﻿namespace Tokenypto.Api.Services.Shared
+﻿using Tokenypto.Api.Entities.Abstractions;
+
+namespace Tokenypto.Api.Services.Shared;
+
+public static class HttpClientErrors
 {
-    public static class HttpClientErrors
-    {
-        public static readonly string NoResponse = "No response from endpoint!";
-    }
+    public static readonly Error NoResponse = new Error("HttpClientError.NoResponse", "No response from endpoint!");
 }

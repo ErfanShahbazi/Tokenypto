@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Polly;
+﻿using Polly;
 using Polly.Extensions.Http;
 using Tokenypto.Api.Services.Crypto;
 

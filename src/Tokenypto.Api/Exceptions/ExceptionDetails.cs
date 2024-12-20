@@ -2,4 +2,5 @@
 
 public record ExceptionDetails(
 int StatusCode,
+string Title,
 string Detail);
