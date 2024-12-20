@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    # Step 2: Setup .NET
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0.x'  # .NET version
+
+    # Step 3: Restore dependencies
+    - name: Install Dependencies
+      run: dotnet restore
+
+    # Step 4: Build the project
+    - name: Build Project
+      run: dotnet test 
