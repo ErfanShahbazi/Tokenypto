@@ -1,4 +1,5 @@
-﻿using Polly;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using Polly.Extensions.Http;
 using Tokenypto.Api.Services.Crypto;
 
@@ -19,10 +20,11 @@ public static class HttpClientConfiguration
         return services;
     }
 
-    private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+    static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
     {
         return HttpPolicyExtensions
-               .HandleTransientHttpError()
-               .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(1));
+            .HandleTransientHttpError()
+            .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+            .WaitAndRetryAsync(5, _ => TimeSpan.FromSeconds(2));
     }
 }
