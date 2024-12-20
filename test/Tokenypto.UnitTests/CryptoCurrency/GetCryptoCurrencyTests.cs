@@ -44,7 +44,7 @@ namespace Tokenypto.Api.UnitTests
 
             // Assert
             result.IsSuccess.Should().BeTrue();
-            result.Value.Money.Amount.Should().BeGreaterThan(0);
+            result.Value.PriceData.Amount.Should().BeGreaterThan(0);
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace Tokenypto.Api.UnitTests
             result.Value.Count.Should().Be(5);
             foreach (var item in result.Value)
             {
-                item.Money.Amount.Should().BeGreaterThan(0);
+                item.PriceData.Amount.Should().BeGreaterThan(0);
             }
         }
     }
